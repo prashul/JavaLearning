@@ -1,4 +1,4 @@
-# SpringBoot reading YAML configuration Files
+# Reading AML configuration Files in Spring Boot App
 
 A yaml fie is to store element configuration. Generally the properties are stored in property file for example
 
