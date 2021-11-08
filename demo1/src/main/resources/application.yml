@@ -1,0 +1,15 @@
+app:
+  name: My app
+  description: Welcome to {app.name}
+
+my:
+  greeting: Hello World
+  list:
+    values: One, Two, Three
+
+db:
+  connection: "String"
+  host: 127.0.0.1
+  port: 1200
+
+hello: world
