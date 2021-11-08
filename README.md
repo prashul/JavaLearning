@@ -1,4 +1,4 @@
-# JavaLearning
+# SpringBoot reading YAML configuration Files
 
 A yaml fie is to store element configuration. Generally the properties are stored in property file for example
 
