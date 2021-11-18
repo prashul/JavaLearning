@@ -1,16 +1,21 @@
 package io.learning.ratingsdataservice.resources;
 
 import io.learning.ratingsdataservice.models.Rating;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import io.learning.ratingsdataservice.models.UserRating;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
-@Mapping("/ratingsdata")
+@RequestMapping("/ratingsdata")
 public class RatingResource {
     @GetMapping("/{userId}")
-    public Rating getRatings(@PathVariable("userId") String userId ) {
-        return new Rating(300, "200");
+    public UserRating getRatings(@PathVariable("userId") String userId ) {
+        List<Rating> ratings = Arrays.asList(
+                new Rating("4","1234" ),
+                new Rating("3","5678" )
+        );
+        return new UserRating(ratings);
     }
 }
