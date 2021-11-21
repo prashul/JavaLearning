@@ -5,6 +5,7 @@ import io.learning.moviecatalogservice.models.Movie;
 import io.learning.moviecatalogservice.models.Rating;
 import io.learning.moviecatalogservice.models.UserRating;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,7 @@ public class MovieCatalogResource {
         // Rest call to the ratings service
         UserRating userRating = webClient.build()
                 .get()
-                .uri("http://localhost:8083/ratingsdata/" + userId)
+                .uri("http://ratings-data-service/ratingsdata/" + userId)
                 .retrieve()
                 .bodyToMono(UserRating.class)
                 .block();
@@ -40,7 +41,7 @@ public class MovieCatalogResource {
             //final Movie movie = restTemplate.getForObject("http://localhost:8082/movies/" + rating.getMovieId(), Movie.class);
             final Movie movie = webClient.build()
                     .get()
-                    .uri("http://localhost:8082/movies/" + rating.getMovieId())
+                    .uri("http://movie-info-service/movies/" + rating.getMovieId())
                     .retrieve()
                     .bodyToMono(Movie.class) // asynchronous communication
                     .block();

@@ -8,10 +8,10 @@
         <version>2.6.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>io.learning</groupId>
-    <artifactId>movie-catalog-service</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>discovery-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>movie-catalog-service</name>
+    <name>discovery-server</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -19,27 +19,14 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- support for web flux -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>        <dependency>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -53,6 +40,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -71,4 +59,5 @@
             </snapshots>
         </repository>
     </repositories>
+
 </project>
